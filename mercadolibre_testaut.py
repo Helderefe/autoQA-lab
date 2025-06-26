@@ -65,7 +65,7 @@ time.sleep(1)  # Darle tiempo a que aparezca el menú
 
 opciones = driver.find_elements(By.XPATH, "//li[@role='option']//span")
 for o in opciones:
-    print("🔹", o.text)
+    print("*", o.text)
 
 opcion_mayor_precio = wait.until(
     EC.presence_of_element_located((By.XPATH, "//span[contains(text(), 'Mayor precio')]"))
@@ -86,8 +86,8 @@ for i, producto in enumerate(productos, 1):
         precio = producto.find_element(By.CLASS_NAME, "andes-money-amount__fraction").text
         print(f"{i}. {nombre} - ${precio}")
     except Exception as e:
-        print(f"{i}. ⚠️ Error al obtener producto: {e}")
+        print(f"{i}.  Error al obtener producto: {e}")
 
 
-input("✅ Elemento encontrado . Presiona Enter para cerrar...")
+input(" Elemento encontrado . Presiona Enter para cerrar...")
 driver.quit()
